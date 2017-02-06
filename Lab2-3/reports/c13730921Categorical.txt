@@ -1,0 +1,12 @@
+,Count,Missing Percentage,Cardinality,Mode,Mode Frequency,Mode Percentage,2nd Mode,2nd Mode Frequency,2nd Mode Percentage
+symboling,205,0.0,6,0,67,32.6829268293,1,54,26.3414634146
+make,205,0.0,22,toyota,32,15.6097560976,nissan,18,8.78048780488
+fuel-type,205,0.0,2,gas,185,90.243902439,diesel,20,9.75609756098
+aspiration,205,0.0,2,std,168,81.9512195122,turbo,37,18.0487804878
+num-of-doors,205,0.975609756098,3,four,114,55.6097560976,two,89,43.4146341463
+body-style,205,0.0,5,sedan,96,46.8292682927,hatchback,70,34.1463414634
+drive-wheels,205,0.0,3,fwd,120,58.5365853659,rwd,76,37.0731707317
+engine-location,205,0.0,2,front,202,98.5365853659,rear,3,1.46341463415
+engine-type,205,0.0,7,ohc,148,72.1951219512,ohcf,15,7.31707317073
+num-of-cylinders,205,0.0,7,four,159,77.5609756098,six,24,11.7073170732
+fuel-system,205,0.0,8,mpfi,94,45.8536585366,2bbl,66,32.1951219512
