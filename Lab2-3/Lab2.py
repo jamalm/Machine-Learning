@@ -13,7 +13,7 @@ Desc:   This program collects a dataset
 """
 
 def main():
-
+    #File Locations
     dataFile = '.\data\DataSet.txt'
     headerFile = r'.\data\featureNames.txt'
 
@@ -30,13 +30,16 @@ def main():
 
     #pass in indices and dataframe to be spliced
     featureSplit = SpliceFeatures(dataFrame, splice)
+
+    """Create DQR's for continuous and Categorical Features"""
     Cont_Report = ContinuousFeatures(featureSplit[0])
+    Cat_Report = CategoricalFeatures(featureSplit[1])
 
     """ Export file to reports directory as csv/txt"""
     Cont_Report.to_csv('./reports/c13730921.txt')
 
 
-
+"""---------------Continuous Features---------------------------"""
 #method to prepare continuous feature DQR
 def ContinuousFeatures(dataFrame):
     #columns in DQR
@@ -77,12 +80,22 @@ def ContinuousFeatures(dataFrame):
     df = pd.DataFrame(data=dataSet ,index=dataFrame.columns, columns=columnSet)
     return df
 
+"""----------------- Categorical Features -------------------"""
+def CategoricalFeatures(dataFrame):
+    mode = []
+    modePercent = []
+    mode2 = []
+    mode2Percent = []
+    missPercent = []
+    card = []
 
-#def CategoricalFeatures(dataFrame):
+    for i in dataFrame.columns:
+        mode.append(dataFrame[i].mode())
+        mode2.append(SecondMode(dataFrame[i]))
+    #print mode
 
 
-
-""" Some functions to keep methods clean"""
+"""Some functions to keep methods clean"""
 
 #splits up continuous and categorical data
 def SpliceFeatures(dataFrame, splice):
@@ -91,9 +104,15 @@ def SpliceFeatures(dataFrame, splice):
     categorical = dataFrame.iloc[:,splice[1]]
     return [continuous, categorical]
 
-# just percentage function to keep methods clean
+#percentage function to keep methods clean
 def percentage(part, whole):
     return 100 * float(part) / float(whole)
+
+def SecondMode(dataSet):
+    commonValue = dataSet.value_counts()
+    #for i in range(len(dataSet)):
+
+    return commonValue.index[1]
 
 #reads txt file from data folder adn returns it as a pandas.DataFrame
 def GetRawCSV(path, header):
