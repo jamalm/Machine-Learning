@@ -3,7 +3,7 @@ import numpy
 
 """
 Author: Jamal Mahmoud, C13730921
-Date:   01/02/2017
+Date:   13/02/2017
 Desc:   This program collects a dataset
         and runs statistical analysis on it to
         produce a Data Quality Report
@@ -26,8 +26,6 @@ def main():
     dataFrame = GetRawCSV(dataFile, header)
 
     """Split dataframe into continuous and categorical features"""
-    # hardcoded columns for continuous and categorical
-    #splice = [[1, 9, 10, 11, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 25], [0, 2, 3, 4, 5, 6, 7, 8, 14, 15, 17]]
     splice = [[1,3,11,12], [0,2,4,5,6,7,8,9,10,13,14,15]]
 
     # pass in indices and dataframe to be spliced
